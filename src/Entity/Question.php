@@ -40,18 +40,28 @@ class Question
     /**
      * @ORM\Column(type="integer")
      */
-    private $votes;
+    private $votes = 0;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return $this
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -59,11 +69,18 @@ class Question
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getSlug(): ?string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string $slug
+     * @return $this
+     */
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
@@ -71,11 +88,18 @@ class Question
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getQuestion(): ?string
     {
         return $this->question;
     }
 
+    /**
+     * @param string $question
+     * @return $this
+     */
     public function setQuestion(string $question): self
     {
         $this->question = $question;
@@ -83,11 +107,18 @@ class Question
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getAskedAt(): ?\DateTimeInterface
     {
         return $this->askedAt;
     }
 
+    /**
+     * @param \DateTimeInterface|null $askedAt
+     * @return $this
+     */
     public function setAskedAt(?\DateTimeInterface $askedAt): self
     {
         $this->askedAt = $askedAt;
@@ -95,14 +126,51 @@ class Question
         return $this;
     }
 
-    public function getVotes(): ?int
+    /**
+     * @return int
+     */
+    public function getVotes(): int
     {
         return $this->votes;
     }
 
+    /**
+     * @param int $votes
+     * @return $this
+     */
     public function setVotes(int $votes): self
     {
         $this->votes = $votes;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVotesString(): string
+    {
+        $symbol = $this->votes > 0 ? '+' : '-';
+
+        return $symbol . abs($this->votes);
+    }
+
+    /**
+     * @return $this
+     */
+    public function upVote(): self
+    {
+        $this->votes++;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function downVote(): self
+    {
+        $this->votes--;
 
         return $this;
     }
