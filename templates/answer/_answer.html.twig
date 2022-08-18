@@ -1,4 +1,14 @@
 <li class="mb-4 mx-5">
+    {% if showQuestion|default(false) %}
+        <a href="{{ path('app_question_show', {
+                slug: answer.question.slug
+            }) }}"
+            class="mb-1 link-secondary"
+        >
+            <strong>Question:</strong>
+            {{ answer.question.questionText|u.truncate(80, '...') }}
+        </a>
+    {% endif %}
     <div class="d-flex align-items-center">
         <div class="col-1 mr-2 pt-2">
             <img src="{{ asset('images/tisha.png') }}" width="50" height="50" alt="Tisha avatar">

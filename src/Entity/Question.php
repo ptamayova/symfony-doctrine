@@ -234,4 +234,13 @@ class Question
 
         return $this;
     }
+
+    public function getQuestionText(): string
+    {
+        if (!$this->getQuestion()) {
+            return '';
+        }
+
+        return (string) $this->getQuestion();
+    }
 }
