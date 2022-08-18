@@ -13,6 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnswerController extends AbstractController
 {
     /**
+     * @Route("/answers/popular", name="app_popular_answers", methods={"GET"})
+     */
+    public function popularAnswers()
+    {
+        return $this->render('answer/popularAnswers.html.twig');
+    }
+
+    /**
      * @Route("/answers/{id}/vote", methods="POST", name="app_answer_vote")
      */
     public function answerVote(
