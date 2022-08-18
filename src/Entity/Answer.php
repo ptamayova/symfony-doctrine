@@ -4,12 +4,15 @@ namespace App\Entity;
 
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass=AnswerRepository::class)
  */
 class Answer
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -30,7 +33,13 @@ class Answer
     /**
      * @ORM\Column(type="integer")
      */
-    private $votes;
+    private $votes = 0;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $question;
 
     public function getId(): ?int
     {
@@ -69,6 +78,18 @@ class Answer
     public function setVotes(int $votes): self
     {
         $this->votes = $votes;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): self
+    {
+        $this->question = $question;
 
         return $this;
     }

@@ -976,91 +976,138 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="283" parent="274" name="doctrine_migration_versions">
+    <table id="283" parent="274" name="answer">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_unicode_ci</CollationName>
     </table>
-    <table id="284" parent="274" name="question">
+    <table id="284" parent="274" name="doctrine_migration_versions">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_unicode_ci</CollationName>
+    </table>
+    <table id="285" parent="274" name="question">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="285" parent="283" name="version">
-      <DataType>varchar(191)|0s</DataType>
+    <column id="286" parent="283" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="286" parent="283" name="executed_at">
-      <DataType>datetime|0s</DataType>
+    <column id="287" parent="283" name="content">
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="287" parent="283" name="execution_time">
-      <DataType>int|0s</DataType>
+    <column id="288" parent="283" name="username">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="288" parent="283" name="PRIMARY">
-      <ColNames>version</ColNames>
+    <column id="289" parent="283" name="votes">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="290" parent="283" name="created_at">
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="291" parent="283" name="updated_at">
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <index id="292" parent="283" name="PRIMARY">
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="289" parent="283" name="PRIMARY">
+    <key id="293" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="290" parent="284" name="id">
+    <column id="294" parent="284" name="version">
+      <DataType>varchar(191)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="295" parent="284" name="executed_at">
+      <DataType>datetime|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="296" parent="284" name="execution_time">
+      <DataType>int|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <index id="297" parent="284" name="PRIMARY">
+      <ColNames>version</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="298" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="299" parent="285" name="id">
       <AutoIncrement>21</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="291" parent="284" name="name">
+    <column id="300" parent="285" name="name">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="292" parent="284" name="slug">
+    <column id="301" parent="285" name="slug">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="293" parent="284" name="question">
+    <column id="302" parent="285" name="question">
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="294" parent="284" name="asked_at">
+    <column id="303" parent="285" name="asked_at">
       <DataType>datetime|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="295" parent="284" name="votes">
+    <column id="304" parent="285" name="votes">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="296" parent="284" name="created_at">
+    <column id="305" parent="285" name="created_at">
       <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="297" parent="284" name="updated_at">
+    <column id="306" parent="285" name="updated_at">
       <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <index id="298" parent="284" name="PRIMARY">
+    <index id="307" parent="285" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="299" parent="284" name="UNIQ_B6F7494E989D9B62">
+    <index id="308" parent="285" name="UNIQ_B6F7494E989D9B62">
       <ColNames>slug</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="300" parent="284" name="PRIMARY">
+    <key id="309" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="301" parent="284" name="UNIQ_B6F7494E989D9B62">
+    <key id="310" parent="285" name="UNIQ_B6F7494E989D9B62">
       <UnderlyingIndexName>UNIQ_B6F7494E989D9B62</UnderlyingIndexName>
     </key>
   </database-model>
