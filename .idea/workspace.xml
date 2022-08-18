@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="761da928-e76a-40e3-b7a8-d4c2f348c361" name="Changes" comment="Updates classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/answer/_answer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/answer/_answer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/answer/popularAnswers.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/answer/popularAnswers.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnswerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnswerRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

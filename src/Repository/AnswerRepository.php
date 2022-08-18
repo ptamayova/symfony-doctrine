@@ -26,8 +26,6 @@ class AnswerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function add(Answer $entity, bool $flush = true): void
     {
@@ -38,8 +36,6 @@ class AnswerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function remove(Answer $entity, bool $flush = true): void
     {
@@ -71,7 +67,7 @@ class AnswerRepository extends ServiceEntityRepository
      */
     public function findAllApproved(int $max = 10): array
     {
-        return $this->createQueryBuilder('a')
+        return $this->createQueryBuilder('answer')
             ->addCriteria(self::createApprovedCriteria())
             ->setMaxResults($max)
             ->getQuery()
@@ -86,9 +82,11 @@ class AnswerRepository extends ServiceEntityRepository
      */
     public function findMostPopular(): array
     {
-        return $this->createQueryBuilder('a')
+        return $this->createQueryBuilder('answer')
             ->addCriteria(self::createApprovedCriteria())
-            ->orderBy('a.votes', 'DESC')
+            ->orderBy('answer.votes', 'DESC')
+            ->innerJoin('answer.question', 'question')
+            ->addSelect('question')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult();
@@ -100,10 +98,10 @@ class AnswerRepository extends ServiceEntityRepository
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+        return $this->createQueryBuilder('answer')
+            ->andWhere('answer.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
+            ->orderBy('answer.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -114,8 +112,8 @@ class AnswerRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?Answer
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+        return $this->createQueryBuilder('answer')
+            ->andWhere('answer.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
