@@ -6,4 +6,9 @@
             <h1>Most Popular Answers</h1>
         </div>
     </div>
+    <ul class="list-unstyled">
+        {% for answer in answers %}
+            {{ include('answer/_answer.html.twig') }}
+        {% endfor %}
+    </ul>
 {% endblock %}

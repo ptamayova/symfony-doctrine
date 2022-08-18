@@ -1,0 +1,24 @@
+<li class="mb-4 mx-5">
+    <div class="d-flex align-items-center">
+        <div class="col-1 mr-2 pt-2">
+            <img src="{{ asset('images/tisha.png') }}" width="50" height="50" alt="Tisha avatar">
+        </div>
+        <div class="col mr-3 pt-2">
+            {{ answer.content|parse_markdown }}
+            <p>-- {{ answer.username }}</p>
+        </div>
+        <div class="col-2 text-right">
+            <small>{{ answer.createdAt|ago }}</small>
+            <div class="vote-arrows"{{ stimulus_controller('answer-vote', {
+                url: path('app_answer_vote', {
+                    id: answer.id
+                })
+            }) }}
+            >
+                <button class="vote-up btn btn-link" name="direction" value="up"><i class="far fa-arrow-alt-circle-up"></i></button>
+                <button class="vote-down btn btn-link" name="direction" value="down"><i class="far fa-arrow-alt-circle-down"></i></button>
+                <span><span {{ stimulus_target('answer-vote', 'voteTotal') }}>{{ answer.votes }}</span></span>
+            </div>
+        </div>
+    </div>
+</li>

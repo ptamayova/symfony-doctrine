@@ -78,6 +78,22 @@ class AnswerRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Get the 10 most popular answers.
+     *
+     * @return array
+     * @throws QueryException
+     */
+    public function findMostPopular(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->addCriteria(self::createApprovedCriteria())
+            ->orderBy('a.votes', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Answer[] Returns an array of Answer objects
     //  */

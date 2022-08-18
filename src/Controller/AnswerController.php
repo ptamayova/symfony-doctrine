@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Answer;
+use App\Repository\AnswerRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use http\Client\Request;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,12 +14,30 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AnswerController extends AbstractController
 {
+    private AnswerRepository $answerRepository;
+
+    /**
+     * @param AnswerRepository $answerRepository
+     */
+    public function __construct(AnswerRepository $answerRepository)
+    {
+        $this->answerRepository = $answerRepository;
+    }
+
     /**
      * @Route("/answers/popular", name="app_popular_answers", methods={"GET"})
      */
     public function popularAnswers()
     {
-        return $this->render('answer/popularAnswers.html.twig');
+        try {
+            $answers = $this->answerRepository->findMostPopular();
+        } catch (Exception $e) {
+            return new JsonResponse(['message' => $e->getMessage()], 500);
+        }
+
+        return $this->render('answer/popularAnswers.html.twig', [
+            'answers' => $answers,
+        ]);
     }
 
     /**
