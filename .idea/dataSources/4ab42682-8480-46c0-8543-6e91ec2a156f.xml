@@ -1019,95 +1019,114 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="292" parent="283" name="PRIMARY">
+    <column id="292" parent="283" name="question_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="293" parent="283" name="status">
+      <DataType>varchar(15)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="294" parent="283" name="FK_DADD4A251E27F6BF">
+      <ColNames>question_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>question</RefTableName>
+    </foreign-key>
+    <index id="295" parent="283" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="293" parent="283" name="PRIMARY">
+    <index id="296" parent="283" name="IDX_DADD4A251E27F6BF">
+      <ColNames>question_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="297" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="294" parent="284" name="version">
+    <column id="298" parent="284" name="version">
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="295" parent="284" name="executed_at">
+    <column id="299" parent="284" name="executed_at">
       <DataType>datetime|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="296" parent="284" name="execution_time">
+    <column id="300" parent="284" name="execution_time">
       <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <index id="297" parent="284" name="PRIMARY">
+    <index id="301" parent="284" name="PRIMARY">
       <ColNames>version</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="298" parent="284" name="PRIMARY">
+    <key id="302" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="299" parent="285" name="id">
+    <column id="303" parent="285" name="id">
       <AutoIncrement>21</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="300" parent="285" name="name">
+    <column id="304" parent="285" name="name">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="301" parent="285" name="slug">
+    <column id="305" parent="285" name="slug">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="302" parent="285" name="question">
+    <column id="306" parent="285" name="question">
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="303" parent="285" name="asked_at">
+    <column id="307" parent="285" name="asked_at">
       <DataType>datetime|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="304" parent="285" name="votes">
+    <column id="308" parent="285" name="votes">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="305" parent="285" name="created_at">
+    <column id="309" parent="285" name="created_at">
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="306" parent="285" name="updated_at">
+    <column id="310" parent="285" name="updated_at">
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <index id="307" parent="285" name="PRIMARY">
+    <index id="311" parent="285" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="308" parent="285" name="UNIQ_B6F7494E989D9B62">
+    <index id="312" parent="285" name="UNIQ_B6F7494E989D9B62">
       <ColNames>slug</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="309" parent="285" name="PRIMARY">
+    <key id="313" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="310" parent="285" name="UNIQ_B6F7494E989D9B62">
+    <key id="314" parent="285" name="UNIQ_B6F7494E989D9B62">
       <UnderlyingIndexName>UNIQ_B6F7494E989D9B62</UnderlyingIndexName>
     </key>
   </database-model>

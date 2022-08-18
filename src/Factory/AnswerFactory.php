@@ -35,7 +35,8 @@ final class AnswerFactory extends ModelFactory
             'username' => self::faker()->userName(),
             'createdAt' => self::faker()->dateTimeBetween('-1 year'),
             'votes' => self::faker()->numberBetween(-20, 50),
-            'question' => QuestionFactory::new()->unpublished()
+            'question' => QuestionFactory::new()->unpublished(),
+            'status' => Answer::STATUS_APPROVED
         ];
     }
 
@@ -44,6 +45,11 @@ final class AnswerFactory extends ModelFactory
         return $this
             // ->afterInstantiate(function(Answer $answer): void {})
         ;
+    }
+
+    public function needsApproval(): self
+    {
+        return $this->addState(['status' => Answer::STATUS_NEEDS_APPROVAL]);
     }
 
     protected static function getClass(): string

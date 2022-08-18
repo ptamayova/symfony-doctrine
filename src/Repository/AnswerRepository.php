@@ -4,8 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Answer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Query\QueryException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -45,6 +47,35 @@ class AnswerRepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+
+    /**
+     * Get only answers that are approved.
+     *
+     * @return Criteria
+     */
+    public static function createApprovedCriteria(): Criteria
+    {
+        return Criteria::create()
+            ->andWhere(
+                Criteria::expr()->eq('status', Answer::STATUS_APPROVED)
+            );
+    }
+
+    /**
+     * Get all answers that are approved.
+     *
+     * @param int $max
+     * @return array
+     * @throws QueryException
+     */
+    public function findAllApproved(int $max = 10): array
+    {
+        return $this->createQueryBuilder('a')
+            ->addCriteria(self::createApprovedCriteria())
+            ->setMaxResults($max)
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
