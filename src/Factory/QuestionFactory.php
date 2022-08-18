@@ -34,13 +34,8 @@ final class QuestionFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-             ->afterInstantiate(function(Question $question) {
-                 if (!$question->getSlug()) {
-                     $slugger = new AsciiSlugger();
-                     $slugFromQuestionName = $slugger->slug($question->getName());
-                     $question->setSlug(strtolower($slugFromQuestionName));
-                 }
-            });
+             //->afterInstantiate(function(Question $question) { })
+        ;
     }
 
     public function unpublished(): self
