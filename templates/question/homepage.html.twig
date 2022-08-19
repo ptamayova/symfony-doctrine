@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row">
-        {% for question in questions %}
+        {% for question in pager %}
             <div class="col-12 mb-3">
                 <div style="box-shadow: 2px 3px 9px 4px rgba(0,0,0,0.04);">
                     <div class="q-container p-4">
@@ -29,7 +29,9 @@
                                 {% endfor %}
                             </div>
                             <div class="col">
-                                <a class="q-title" href="{{ path('app_question_show', { slug: question.slug }) }}"><h2>Reversing a Spell</h2></a>
+                                <a class="q-title" href="{{ path('app_question_show', { slug: question.slug }) }}">
+                                    <h2>{{ question.name }}</h2>
+                                </a>
                                 <div class="q-display p-3">
                                     <i class="fa fa-quote-left mr-3"></i>
                                     <p class="d-inline">{{ question.question|parse_markdown}}</p>
@@ -46,6 +48,7 @@
                 </div>
             </div>
         {% endfor %}
+        {{ pagerfanta(pager) }}
     </div>
 </div>
 {% endblock %}

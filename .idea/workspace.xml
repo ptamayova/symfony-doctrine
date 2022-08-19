@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="761da928-e76a-40e3-b7a8-d4c2f348c361" name="Changes" comment="Updates classes">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20220819114206.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/QuestionTag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/QuestionTagRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ab42682-8480-46c0-8543-6e91ec2a156f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4ab42682-8480-46c0-8543-6e91ec2a156f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/babdev_pagerfanta.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/QuestionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/QuestionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/QuestionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/question/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/homepage.html.twig" afterDir="false" />
     </list>
@@ -166,7 +162,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660654512635</updated>
       <workItem from="1660654513719" duration="12840000" />
-      <workItem from="1660896821905" duration="6646000" />
+      <workItem from="1660896821905" duration="7905000" />
     </task>
     <servers />
   </component>

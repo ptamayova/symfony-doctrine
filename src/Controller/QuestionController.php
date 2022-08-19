@@ -9,6 +9,8 @@ use App\Repository\QuestionRepository;
 use App\Service\MarkdownHelper;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
+use Pagerfanta\Pagerfanta;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -34,12 +36,17 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/", name="app_homepage")
+     * @Route("/{page<\d+>}", name="app_homepage")
      */
-    public function homepage()
+    public function homepage(Request $request, int $page = 1)
     {
+        $queryBuilder = $this->questionRepository->createAskedOrderedByNewestQueryBuilder();
+        $pagerfanta = new Pagerfanta(new QueryAdapter($queryBuilder));
+        $pagerfanta->setMaxPerPage(5);
+        $pagerfanta->setCurrentPage($page);
+
         return $this->render('question/homepage.html.twig', [
-            'questions' => $this->questionRepository->findAllAskedOrderedByNewest(),
+            'pager' => $pagerfanta
         ]);
     }
 
