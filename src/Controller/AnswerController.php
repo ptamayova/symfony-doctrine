@@ -6,10 +6,10 @@ use App\Entity\Answer;
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use http\Client\Request;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AnswerController extends AbstractController
@@ -25,12 +25,14 @@ class AnswerController extends AbstractController
     }
 
     /**
-     * @Route("/answers/popular", name="app_popular_answers", methods={"GET"})
+     * @Route("/answers/popular", name="app_popular_answers")
      */
-    public function popularAnswers()
+    public function popularAnswers(Request $request)
     {
         try {
-            $answers = $this->answerRepository->findMostPopular();
+            $answers = $this->answerRepository->findMostPopular(
+                $request->query->get('q')
+            );
         } catch (Exception $e) {
             return new JsonResponse(['message' => $e->getMessage()], 500);
         }
