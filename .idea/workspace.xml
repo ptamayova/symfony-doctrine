@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="761da928-e76a-40e3-b7a8-d4c2f348c361" name="Changes" comment="Updates classes">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ab42682-8480-46c0-8543-6e91ec2a156f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4ab42682-8480-46c0-8543-6e91ec2a156f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AnswerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnswerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Factory/QuestionFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factory/QuestionFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/AnswerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnswerRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/answer/_answer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/answer/_answer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/answer/popularAnswers.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/answer/popularAnswers.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -26,6 +26,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -158,6 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660654512635</updated>
       <workItem from="1660654513719" duration="12840000" />
+      <workItem from="1660896821905" duration="1327000" />
     </task>
     <servers />
   </component>

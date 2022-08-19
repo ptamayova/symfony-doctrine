@@ -5,8 +5,6 @@ namespace App\Repository;
 use App\Entity\Answer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\Criteria;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Query\QueryException;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -59,12 +57,13 @@ class AnswerRepository extends ServiceEntityRepository
     }
 
     /**
-     * Get all answers that are approved.
-     *
-     * @param int $max
-     * @return array
-     * @throws QueryException
-     */
+//     * Get all answers that are approved.
+//     *
+//     * @param int $max
+//     * @return array
+//     * @throws QueryException
+//     */
+    /*
     public function findAllApproved(int $max = 10): array
     {
         return $this->createQueryBuilder('answer')
@@ -72,7 +71,7 @@ class AnswerRepository extends ServiceEntityRepository
             ->setMaxResults($max)
             ->getQuery()
             ->getResult();
-    }
+    }*/
 
     /**
      * Get the 10 most popular answers.
@@ -90,7 +89,7 @@ class AnswerRepository extends ServiceEntityRepository
             ->addSelect('question');
 
         if ($search) {
-            $queryBuilder->andWhere('question.question LIKE :search')
+            $queryBuilder->andWhere('answer.content LIKE :search OR question.question LIKE :search')
                 ->setParameter('search', '%' . $search . '%');
         }
 
